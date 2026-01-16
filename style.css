@@ -1,0 +1,176 @@
+/* CRUMB BRAND COLORS */
+:root {
+    --bg: #0b0b0b;
+    --text: #ffffff;
+    --mustard: #d4a017;
+    --teal: #4db6ac;
+    --salmon: #ff8a65;
+    --border: #222;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    line-height: 1.6;
+    /* This adds a "film grain" texture to the background */
+    background-image: url('second versh.gif');
+}
+
+/* MAIN CONTAINER */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* THE MELTING TITLE */
+header h1 {
+    font-size: clamp(3rem, 10vw, 6rem);
+    color: var(--mustard);
+    text-align: center;
+    letter-spacing: -2px;
+    margin: 0;
+    text-transform: uppercase;
+    /* Subtle distortion to mimic the "Locket" music video vibe */
+    filter: contrast(120%) brightness(110%);
+    animation: sway 6s ease-in-out infinite;
+}
+
+@keyframes sway {
+    0%, 100% { transform: skewX(-2deg); }
+    50% { transform: skewX(2deg); }
+}
+
+/* SECTION HEADERS */
+h2 {
+    font-size: 1.2rem;
+    color: var(--teal);
+    border-bottom: 1px solid var(--teal);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-top: 80px;
+    text-transform: uppercase;
+}
+
+#gallery {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.photo-spread {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.photo-item {
+    background: #fff;
+    padding: 10px 10px 25px 10px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    transform: rotate(-2deg); /* Gives it a DIY "pasted-in" look */
+    transition: transform 0.3s ease;
+    max-width: 250px;
+}
+
+.photo-item:nth-child(even) {
+    transform: rotate(3deg); /* Alternates the tilt */
+}
+
+.photo-item:hover {
+    transform: rotate(0deg) scale(1.05);
+    z-index: 10;
+}
+
+.photo-item img {
+    width: 100%;
+    height: auto;
+    filter: sepia(20%) contrast(110%); /* Matches the vintage vibe of the photos */
+}
+
+.photo-caption {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    color: #333;
+    margin-top: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* ORIGIN BOX */
+.origin-box {
+    margin-top: 20px;
+    padding: 30px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.02);
+    position: relative;
+}
+
+/* THE CHRONOLOGICAL ALBUM LIST */
+.album-grid {
+    margin-top: 40px;
+}
+
+.album-card {
+    display: grid;
+    grid-template-columns: 80px 1fr 100px;
+    align-items: center;
+    padding: 25px 10px;
+    border-bottom: 1px solid var(--border);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.album-card:hover {
+    background-color: #151515;
+    color: var(--salmon);
+    padding-left: 20px;
+    border-bottom-color: var(--salmon);
+}
+
+.year {
+    font-weight: bold;
+    opacity: 0.6;
+}
+
+.album-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.format {
+    text-align: right;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--teal);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    margin-top: 150px;
+    padding: 40px;
+    font-size: 0.6rem;
+    border-top: 1px solid var(--border);
+    opacity: 1;
+    letter-spacing: 4px;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 600px) {
+    .album-card {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .format { text-align: left; }
+    h1 { font-size: 3rem; }
+}
+
+.album-link {
+    text-decoration: none; /* Removes the underline */
+    color: inherit;        /* Tells the link to use the color of the text around it */
+    display: block;        /* Makes the whole area of the card clickable */
+}
